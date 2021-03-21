@@ -1,0 +1,19 @@
+import numpy as np
+from scipy import stats
+import cv2
+import math
+from sympy import *
+from sympy.solvers import solve
+#s,r11,r12,r13,r21,r22,r23 = symbols('s r11 r12 r13 r21 r22 r23')
+fx=(2510.23 / 3264) * 1920
+fy=(2459.1 / 1836) * 1080
+cx=(1626.09 / 3264) * 1920
+cy=(977.91 / 1836) * 1080
+#cx = 1920/2
+#cy = 1080/2
+vp1X = 920.00
+vp1Y = 740.00
+r31 = 1/math.sqrt(1+ (((vp1X-cx)/fx)**2)+(((vp1Y-cy)/fy)**2))
+r11 = ((vp1X-cx)/fx)*r31
+r21 = ((vp1Y-cy)/fy)*r31
+print(r11,r21,r31)
